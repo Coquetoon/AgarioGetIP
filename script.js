@@ -6,7 +6,7 @@
         try {
             var re = /((?:[0-9]{1,3}(?:\.|\-)){1,3}[0-9]{1,3})(?:.*?)?(\:[0-9]{1,5})/;
             var match = re.exec(this.url);
-            console.log("https://agar.io/?sip=" + match[1].split("-").join(".") + match[2]);
+            console.log("http://agar.io/?sip=" + match[1].replace(/-/g, '.') + match[2]);
         } catch (err) {}
         try {
             __WS_send.apply(this, [data]);
@@ -17,4 +17,3 @@
         }
     }
 })();
-
