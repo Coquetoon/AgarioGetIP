@@ -7,7 +7,9 @@
             var re = /((?:[0-9]{1,3}(?:\.|\-)){1,3}[0-9]{1,3})(?:.*?)?(\:[0-9]{1,5})/;
             var match = re.exec(this.url);
             console.log("http://agar.io/?sip=" + match[1].replace(/-/g, '.') + match[2]);
-        } catch (err) {}
+        } catch (err) {
+            console.error(err.message);
+        }
         try {
             __WS_send.apply(this, [data]);
             WebSocket.prototype.send = __WS_send;
