@@ -4,9 +4,9 @@
     WebSocket.prototype.send = function(data) {
         console.log(this.url);
         try {
-            var re = /((?:[0-9]{1,3}(?:\.|\-)){1,3}[0-9]{1,3})(?:.*?)?(\:[0-9]{1,5})/;
-            var match = re.exec(this.url);
-            console.log("http://agar.io/?sip=" + match[1].replace(/-/g, '.') + match[2]);
+            var ip = /((?:[0-9]{1,3}(?:\.|\-)){1,3}[0-9]{1,3})/.exec(this.url);
+            var port = /\:[0-9]{1,5}/.exec(this.url) || ':80';
+            console.log("http://agar.io/?sip=" + ip[1].replace(/-/g, '.') + port);
         } catch (err) {
             console.error(err.message);
         }
