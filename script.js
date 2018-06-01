@@ -5,8 +5,7 @@
         console.log(this.url);
         try {
             var domain = /([^:\/\n]+)\.*agar\.io/.exec(this.url);
-            var port = /\:[0-9]{1,5}/.exec(this.url) || ':80';
-            console.log("http://agar.io/?sip=" + domain[0] + port);
+            console.log("http://agar.io/?sip=" + domain[0]);
         } catch (err) {
             console.error(err.message);
         }
